@@ -184,3 +184,5 @@ document.addEventListener('keydown', function (e) {
             Element.prototype.msMatchesSelector;
     }
 })();;
+
+smoothscroll.polyfill();
