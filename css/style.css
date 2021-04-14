@@ -928,6 +928,10 @@ picture {
     font-size: 27px;
   }
 
+  .intro {
+    min-height: 890px;
+  }
+
   .cards__event {
     max-width: 1500px;
   }
@@ -1141,12 +1145,6 @@ picture {
     padding: 5px 0;
     height: auto;
     width: 50px;
-  }
-}
-
-@media (max-height: 2000px) {
-  .intro {
-    min-height: 890px;
   }
 }
 

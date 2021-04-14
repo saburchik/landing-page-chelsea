@@ -1,3 +1,4 @@
+
 // Add classes, when a burger is clicked on
 const burger = document.querySelector('#burger');
 const header = document.querySelector('#header');
@@ -42,6 +43,16 @@ function widthMenu() {
         document.getElementById('effect').classList.remove("active");
     }
 };
+// import smoothscroll from 'smoothscroll-polyfill';
+
+// smoothscroll.polyfill();
+
+// window.SVGElement.prototype.scrollIntoView = (window.HTMLElement || window.Element).prototype.scrollIntoView;
+// import smoothscroll from 'smoothscroll-polyfill';
+
+// // kick off the polyfill!
+// smoothscroll.polyfill();
+
 // Smooth scroll
 const links = document.querySelectorAll('a[href*="#"], [href*="#"]');
 
@@ -62,7 +73,8 @@ for (let link of links) {
         nav.classList.remove('active');
         ham.classList.remove('active');
     })
-};
+}
+;
 const modalLinks = document.querySelectorAll('.modal-link');
 const body = document.querySelector('body');
 const lockPadding = document.querySelectorAll('.lock-padding');
@@ -185,4 +197,6 @@ document.addEventListener('keydown', function (e) {
     }
 })();;
 
-smoothscroll.polyfill();
+// import smoothscroll from 'smoothscroll-polyfill';
+// // kick off the polyfill!
+// smoothscroll.polyfill();
