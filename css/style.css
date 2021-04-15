@@ -111,7 +111,7 @@ picture {
 }
 
 .title {
-  font-size: clamp(35px, 5vw, 72px);
+  font-size: clamp(40px, 5vw, 72px);
   color: #FFFFFF;
   font-weight: 800;
 }
@@ -908,6 +908,10 @@ picture {
   margin-bottom: 50px;
 }
 
+input[type='text'] {
+  font-size: 16px;
+}
+
 @media (min-width: 990px) {
   .title__about {
     font-weight: 700;
@@ -1148,7 +1152,7 @@ picture {
   }
 }
 
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
+@media (-webkit-min-device-pixel-ratio: 0) {
   select:focus,
   textarea:focus,
   input:focus {
