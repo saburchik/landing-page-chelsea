@@ -184,7 +184,7 @@ picture {
 .header {
   width: 100%;
   position: absolute;
-  top: 0;
+  top: -1px;
   left: 0;
   z-index: 99;
 }
@@ -357,14 +357,14 @@ picture {
   width: Min(80%, 800px);
   font-size: clamp(45px, 5vw, 100px);
   line-height: clamp(50px, 5vw, 125px);
-  text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
-  padding: 0 0 45px;
+  text-shadow: 1px 0 1px #fff, 0 1px 1px #fff, -1px 0 1px #fff, 0 -1px 1px #fff;
+  margin-bottom: 35px;
 }
 
 .description__intro {
   width: Min(80%, 400px);
   font-size: clamp(18px, 5vw, 25px);
-  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .event {
@@ -1142,9 +1142,17 @@ picture {
 
 @media (max-height: 400px) {
   .header__logo {
-    padding: 5px 0;
-    height: auto;
+    margin: 15px 0;
+    height: 50px;
     width: 50px;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select:focus,
+  textarea:focus,
+  input:focus {
+    font-size: 16px;
   }
 }
 
