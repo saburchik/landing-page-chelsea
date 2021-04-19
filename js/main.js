@@ -1,4 +1,3 @@
-
 // Add classes, when a burger is clicked on
 const burger = document.querySelector('#burger');
 const header = document.querySelector('#header');
@@ -43,16 +42,6 @@ function widthMenu() {
         document.getElementById('effect').classList.remove("active");
     }
 };
-// import smoothscroll from 'smoothscroll-polyfill';
-
-// smoothscroll.polyfill();
-
-// window.SVGElement.prototype.scrollIntoView = (window.HTMLElement || window.Element).prototype.scrollIntoView;
-// import smoothscroll from 'smoothscroll-polyfill';
-
-// // kick off the polyfill!
-// smoothscroll.polyfill();
-
 // Smooth scroll
 const links = document.querySelectorAll('a[href*="#"], [href*="#"]');
 
@@ -196,7 +185,3 @@ document.addEventListener('keydown', function (e) {
             Element.prototype.msMatchesSelector;
     }
 })();;
-
-// import smoothscroll from 'smoothscroll-polyfill';
-// // kick off the polyfill!
-// smoothscroll.polyfill();
