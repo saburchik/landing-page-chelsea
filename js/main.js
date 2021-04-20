@@ -185,3 +185,7 @@ document.addEventListener('keydown', function (e) {
             Element.prototype.msMatchesSelector;
     }
 })();;
+
+// import smoothscroll from 'smoothscroll-polyfill';
+// kick off the polyfill!
+// smoothscroll.polyfill(); 

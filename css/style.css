@@ -74,6 +74,10 @@ p {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 picture {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -128,9 +132,9 @@ picture {
   font-weight: 700;
   border-radius: 35px;
   border: 4px solid #F3B31D;
-  -webkit-transition: all 250ms;
-  -o-transition: all 250ms;
-  transition: all 250ms;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
   outline: none;
   cursor: pointer;
   padding: 0 70px;
@@ -146,12 +150,11 @@ picture {
 }
 
 .btn__event {
-  display: inline-block;
   color: #000000;
   background-color: #FFFFFF;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-bottom: 50px;
+  padding: 0 30px;
+  margin-bottom: 20px;
+  line-height: 45px;
 }
 
 .btn__event:hover {
@@ -161,10 +164,8 @@ picture {
 }
 
 .btn__about {
-  display: inline-block;
   background-color: #0E3AB1;
-  padding: 10px 35px;
-  text-decoration: none;
+  padding: 0 35px;
 }
 
 .btn__about:hover {
@@ -258,9 +259,9 @@ picture {
 
 .nav__link:hover {
   color: #FF4747;
-  -webkit-transition: all 0.1;
-  -o-transition: all 0.1;
-  transition: all 0.1;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .nav__link:first-child {
@@ -357,7 +358,6 @@ picture {
   width: Min(80%, 800px);
   font-size: clamp(45px, 5vw, 100px);
   line-height: clamp(50px, 5vw, 125px);
-  text-shadow: 1px 0 1px #fff, 0 1px 1px #fff, -1px 0 1px #fff, 0 -1px 1px #fff;
   margin-bottom: 35px;
 }
 
@@ -373,33 +373,38 @@ picture {
   background: url("../img/background-line.jpg") center no-repeat;
   background-size: cover;
   padding: 0 0 70px;
-}
-
-.title__event {
   text-align: center;
-  padding: 70px 0 50px;
 }
 
-.cards__event {
-  width: 100%;
-  max-width: 1200px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 0 0 50px;
+.vertical__body {
+  padding-bottom: 100px;
+  max-width: 990px;
   margin: 0 auto;
 }
 
-.card {
-  background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(rgba(0, 0, 0, 0)));
-  background: -o-linear-gradient(top, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  width: 25%;
+.vertical__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: -22.5px;
+}
+
+.vertical__column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 33.333%;
+          flex: 0 1 33.333%;
+  padding: 22.5px;
+}
+
+.vertical__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -407,15 +412,29 @@ picture {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: auto;
-  text-align: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(rgba(0, 0, 0, 0)));
+  background: -o-linear-gradient(top, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
   border: 4px solid #F3B31D;
   border-radius: 35px;
-  margin: 0 0 0 25px;
+  padding: 15px;
 }
 
-.card:first-child {
-  margin-left: 0;
+.vertical__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin: 0 0 30px 0;
+}
+
+.title__event {
+  padding: 70px 0 50px;
 }
 
 .logo__event {
@@ -429,8 +448,7 @@ picture {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 50px;
-  margin-bottom: 30px;
+  margin: 40px 0;
 }
 
 .logo__img {
@@ -438,7 +456,7 @@ picture {
   height: 64px;
 }
 
-.versus {
+.vs__between {
   color: #fff;
   font-size: 35px;
   font-weight: 700;
@@ -446,18 +464,10 @@ picture {
 }
 
 .description__event {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 212px;
   font-size: 30px;
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 2px;
-  margin-bottom: 30px;
 }
 
 .modal {
@@ -634,35 +644,43 @@ picture {
 }
 
 .window {
-  background-color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  width: 100%;
-  max-width: 80%;
-  height: auto;
   margin: 0 auto;
+  max-width: 1200px;
 }
 
-.image {
-  width: 100%;
+.about__img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 450px;
+          flex: 0 0 450px;
 }
 
-.window__img {
-  width: 100%;
-  height: 580px;
+.about__img img {
+  max-width: 100%;
 }
 
 .content__about {
-  max-height: 580px;
+  background-color: #fff;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 50px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: left;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  padding: 15px;
 }
 
 .title__about {
@@ -900,15 +918,13 @@ picture {
   margin-bottom: 50px;
 }
 
-@media (min-width: 990px) {
-  .title__about {
-    font-weight: 700;
-  }
-}
-
 @media (min-width: 2000px) {
   .container {
     max-width: 1800px;
+  }
+
+  .btn {
+    font-size: 35px;
   }
 
   .header__logo {
@@ -924,8 +940,20 @@ picture {
     min-height: 890px;
   }
 
-  .cards__event {
-    max-width: 1500px;
+  .vertical__body {
+    max-width: 1290px;
+  }
+
+  .vertical__text {
+    margin: 0 0 60px 0;
+  }
+
+  .vs__between {
+    margin: 0 50px;
+  }
+
+  .description__event {
+    font-size: 40px;
   }
 }
 
@@ -935,37 +963,13 @@ picture {
   }
 }
 
-@media (max-width: 1090px) {
-  .cards__event {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-
-  .card {
-    width: 33%;
-  }
-}
-
 @media (max-width: 990px) {
-  .versus {
-    font-size: 30px;
-  }
-
-  .description__event {
-    font-size: 27px;
-  }
-
   .description__terms {
     max-width: 100%;
   }
 }
 
 @media (max-width: 900px) {
-  .window {
-    max-width: 100%;
-  }
-
   .content__footer {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -1006,34 +1010,14 @@ picture {
   }
 }
 
-@media (max-width: 790px) {
-  .cards__event {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-
-  .card {
-    width: 50%;
-    min-width: 290px;
-    margin: 0 0 25px 0;
-  }
-
-  .card:last-child {
-    margin: 0;
-  }
-
-  .window {
-    max-width: 70%;
+@media (max-width: 850px) {
+  .about__img {
+    display: none;
   }
 
   .content__about {
-    max-height: 100%;
-    margin-left: -100%;
+    background: url("../img/chelsea--white.jpg") center no-repeat;
+    background-size: cover;
     text-align: center;
   }
 }
@@ -1068,6 +1052,10 @@ picture {
   .burger {
     display: block;
   }
+
+  .description__event {
+    font-size: 24px;
+  }
 }
 
 @media (max-width: 690px) {
@@ -1091,12 +1079,6 @@ picture {
 @media (max-width: 560px) {
   .title__intro {
     width: Min(80%, 330px);
-  }
-}
-
-@media (max-width: 530px) {
-  .window {
-    max-width: 100%;
   }
 }
 
@@ -1145,3 +1127,8 @@ picture {
 .webp .event { background: url(../img/background-line.webp) center no-repeat; }
 
 .webp .match__header { background: url(../img/modal.webp) center no-repeat; }
+
+@media (max-width: 850px) {
+
+  .webp .content__about { background: url(../img/chelsea--white.webp) center no-repeat; }
+}
