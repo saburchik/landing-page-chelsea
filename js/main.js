@@ -1,3 +1,9 @@
+// import smoothscroll from 'smoothscroll-polyfill';
+
+// smoothscroll.polyfill();
+
+// window.SVGElement.prototype.scrollIntoView = (window.HTMLElement || window.Element).prototype.scrollIntoView;
+
 // Add classes, when a burger is clicked on
 const burger = document.querySelector('#burger');
 const header = document.querySelector('#header');

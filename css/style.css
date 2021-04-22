@@ -125,6 +125,110 @@ picture {
   font-weight: 700;
 }
 
+.navbar.active {
+  -webkit-animation-name: navbar;
+  animation-name: navbar;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes navbar {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.ham {
+  -webkit-transition: -webkit-transform 400ms;
+  transition: -webkit-transform 400ms;
+  -o-transition: transform 400ms;
+  transition: transform 400ms;
+  transition: transform 400ms, -webkit-transform 400ms;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.ham-rotate.active {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.line {
+  fill: none;
+  -webkit-transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  -o-transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #FF4747;
+  stroke-width: 5.5;
+  stroke-linecap: round;
+}
+
+.effect .top {
+  stroke-dasharray: 40 82;
+}
+
+.effect .middle {
+  stroke-dasharray: 40 111;
+}
+
+.effect .bottom {
+  stroke-dasharray: 40 161;
+}
+
+.effect.active .top {
+  stroke-dasharray: 17 82;
+  stroke-dashoffset: -62px;
+}
+
+.effect.active .middle {
+  stroke-dashoffset: 23px;
+}
+
+.effect.active .bottom {
+  stroke-dashoffset: -83px;
+}
+
 .btn {
   color: #FFFFFF;
   height: 55px;
@@ -276,60 +380,7 @@ picture {
   cursor: pointer;
   position: absolute;
   top: 0;
-  right: -15px;
-}
-
-.ham {
-  -webkit-transition: -webkit-transform 400ms;
-  transition: -webkit-transform 400ms;
-  -o-transition: transform 400ms;
-  transition: transform 400ms;
-  transition: transform 400ms, -webkit-transform 400ms;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.ham-rotate.active {
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.line {
-  fill: none;
-  -webkit-transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-  -o-transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-  stroke: #FF4747;
-  stroke-width: 5.5;
-  stroke-linecap: round;
-}
-
-.effect .top {
-  stroke-dasharray: 40 82;
-}
-
-.effect .middle {
-  stroke-dasharray: 40 111;
-}
-
-.effect .bottom {
-  stroke-dasharray: 40 161;
-}
-
-.effect.active .top {
-  stroke-dasharray: 17 82;
-  stroke-dashoffset: -62px;
-}
-
-.effect.active .middle {
-  stroke-dashoffset: 23px;
-}
-
-.effect.active .bottom {
-  stroke-dashoffset: -83px;
+  right: 0;
 }
 
 .intro {
@@ -391,6 +442,7 @@ picture {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100%;
   margin: -22.5px;
 }
 
@@ -647,8 +699,9 @@ picture {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0 auto;
-  max-width: 1200px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .about__img {
@@ -666,17 +719,18 @@ picture {
 
 .content__about {
   background-color: #fff;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: left;
+  max-width: 50%;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -904,8 +958,9 @@ picture {
 }
 
 .content__about-us {
+  background-color: #fff;
   height: auto;
-  padding: 50px 0;
+  padding: 50px 15px;
 }
 
 .title__about-us {
@@ -1059,6 +1114,10 @@ picture {
 }
 
 @media (max-width: 690px) {
+  .content__about {
+    max-width: 100%;
+  }
+
   .sponsor__item {
     width: 50%;
   }
