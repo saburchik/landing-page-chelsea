@@ -87,6 +87,10 @@ picture {
           justify-content: center;
 }
 
+input[type='text'] {
+  font-size: 16px;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -442,8 +446,7 @@ picture {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100%;
-  margin: -22.5px;
+  margin: -15px;
 }
 
 .vertical__column {
@@ -453,7 +456,7 @@ picture {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 33.333%;
           flex: 0 1 33.333%;
-  padding: 22.5px;
+  padding: 15px;
 }
 
 .vertical__item {
