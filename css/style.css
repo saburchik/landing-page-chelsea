@@ -263,6 +263,7 @@ input[type='text'] {
   padding: 0 30px;
   margin-bottom: 20px;
   line-height: 45px;
+  text-transform: uppercase;
 }
 
 .btn__event:hover {
@@ -479,9 +480,6 @@ input[type='text'] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -593,11 +591,18 @@ input[type='text'] {
 .close-modal {
   position: absolute;
   top: -15px;
-  right: -1px;
+  right: 0;
   font-size: 55px;
   font-weight: 700;
   color: #ff4747;
   cursor: pointer;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.close-modal:hover {
+  color: #fff;
 }
 
 .match__title {
@@ -826,7 +831,7 @@ input[type='text'] {
 .description__terms {
   font-size: 18px;
   font-weight: 400;
-  max-width: 20%;
+  max-width: 30%;
   text-align: center;
   line-height: 30px;
 }
