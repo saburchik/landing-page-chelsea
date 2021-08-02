@@ -1,17 +1,17 @@
 // Add classes, when a burger is clicked on
 const burger = document.querySelector('#burger');
 const header = document.querySelector('#header');
-const navbar = document.querySelector('#navbar');
-const nav = document.querySelector('#nav');
+const menu = document.querySelector('#menu');
+const navLinks = document.querySelector('#navLinks');
 const ham = document.querySelector('#effect');
 
 burger.addEventListener('click', function () {
     header.classList.toggle('active');
-    navbar.classList.toggle('active');
-    nav.classList.toggle('active');
+    menu.classList.toggle('active');
+    navLinks.classList.toggle('active');
     ham.classList.toggle('active');
 });
-// Fixed header
+// Fixed navigation
 window.addEventListener("scroll", checkScroll);
 function checkScroll() {
     let scrollHeight = window.scrollY;
@@ -37,8 +37,8 @@ function widthMenu() {
     if (width > 770) {
         document.getElementById('header').classList.remove("active");
         document.getElementById('burger').classList.remove("active");
-        document.getElementById('navbar').classList.remove("active");
-        document.getElementById('nav').classList.remove("active");
+        document.getElementById('menu').classList.remove("active");
+        document.getElementById('navLinks').classList.remove("active");
         document.getElementById('effect').classList.remove("active");
     }
 };
@@ -58,34 +58,34 @@ for (let link of links) {
 
         // Disable burger menu, when smooth scroll
         header.classList.remove('active');
-        navbar.classList.remove('active');
-        nav.classList.remove('active');
+        menu.classList.remove('active');
+        navLinks.classList.remove('active');
         ham.classList.remove('active');
     })
 }
 ;
-const modalLinks = document.querySelectorAll('.modal-link');
 const body = document.querySelector('body');
 const lockPadding = document.querySelectorAll('.lock-padding');
 
 let unlock = true;
-
 const timeout = 700;
-if (modalLinks.length > 0) {
-    for (let i = 0; i < modalLinks.length; i++) {
-        const modalLink = modalLinks[i];
-        modalLink.addEventListener('click', function (e) {
-            const modalName = modalLink.getAttribute('href').replace('#', '');
-            const currentModal = document.getElementById(modalName);
+
+const windowModal = document.querySelectorAll('.window__modal');
+if (windowModal.length > 0) {
+    for (let i = 0; i < windowModal.length; i++) {
+        const openModal = windowModal[i];
+        openModal.addEventListener('click', function (e) {
+            const modalReplace = openModal.getAttribute('href').replace('#', '');
+            const currentModal = document.getElementById(modalReplace);
             modalOpen(currentModal);
             e.preventDefault();
         });
     }
 }
-const modalCloseIcon = document.querySelectorAll('.close-modal');
-if (modalCloseIcon.length > 0) {
-    for (let i = 0; i < modalCloseIcon.length; i++) {
-        const el = modalCloseIcon[i];
+const windowModalDisable = document.querySelectorAll('.modal__disable');
+if (windowModalDisable.length > 0) {
+    for (let i = 0; i < windowModalDisable.length; i++) {
+        const el = windowModalDisable[i];
         el.addEventListener('click', function (e) {
             modalClose(el.closest('.modal'));
             e.preventDefault();
@@ -95,15 +95,15 @@ if (modalCloseIcon.length > 0) {
 
 function modalOpen(currentModal) {
     if (currentModal && unlock) {
-        const modalActive = document.querySelector('.modal.open');
+        const modalActive = document.querySelector('.modal.active');
         if (modalActive) {
             modalClose(modalActive, false);
         } else {
             bodyLock();
         }
-        currentModal.classList.add('open');
+        currentModal.classList.add('active');
         currentModal.addEventListener('click', function (e) {
-            if (!e.target.closest('.match')) {
+            if (!e.target.closest('.modal__inner')) {
                 modalClose(e.target.closest('.modal'));
             }
         });
@@ -111,7 +111,7 @@ function modalOpen(currentModal) {
 }
 function modalClose(modalActive, doUnlock = true) {
     if (unlock) {
-        modalActive.classList.remove('open');
+        modalActive.classList.remove('active');
         if (doUnlock) {
             bodyUnLock();
         }
@@ -155,33 +155,456 @@ function bodyUnLock() {
 // Close Modal-Window by button ESC
 document.addEventListener('keydown', function (e) {
     if (e.which === 27) {
-        const modalActive = document.querySelector('.modal.open');
+        const modalActive = document.querySelector('.modal.active');
         modalClose(modalActive);
     }
-});
+});;
+anychart.onDocumentReady(function () {
+    // ----- The first pie -----
+    // set the data
+    var data = [{
+        x: "Chelsea",
+        value: 58,
+        normal: {
+            fill: "#0400B6"
+        }
+    },
+    {
+        x: "Atletico Madrid",
+        value: 42,
+        normal: {
+            fill: "#E40E0E"
+        }
+    }]
+    // create the chart
+    var chart = anychart.pie()
+    chart.background().stroke("3 #0c1149")
+    chart.background().fill({
+        keys: ["#fff"],
+        angle: 130,
+    })
+    // set the chart title
+    chart.title("Who is the winner?")
+    // add the data
+    chart.data(data)
+    // display the chart in the container
+    chart.container('atl-che_winner')
+    chart.draw()
 
-// Polyfill for IE11
-(function () {
-    // checking support
-    if (!Element.prototype.closest) {
-        // implement
-        Element.prototype.closest = function (css) {
-            var node = this;
-            while (node) {
-                if (node.matches(css)) return node;
-                else node = node.parentElement;
-            }
-            return null;
-        };
-    }
-})();
-(function () {
-    // checking support
-    if (!Element.prototype.matches) {
-        // send value
-        Element.prototype.matches = Element.prototype.matchesSelector ||
-            Element.prototype.webkitMatchesSelector ||
-            Element.prototype.mozMatchesSelector ||
-            Element.prototype.msMatchesSelector;
-    }
-})();;
+
+    // ----- The second pie -----
+    // set the data
+    var data = [{
+        x: "Yes",
+        value: 17,
+        normal: {
+            fill: "#0400B6"
+        }
+    },
+    {
+        x: "No",
+        value: 73,
+        normal: {
+            fill: "#E40E0E"
+        }
+    }]
+    // create the chart
+    var chart = anychart.pie()
+    chart.background().stroke("3 #0c1149")
+    chart.background().fill({
+        keys: ["#fff"],
+        angle: 130,
+    })
+    // set the chart title
+    chart.title("Will both score?")
+    // add the data
+    chart.data(data)
+    // display the chart in the container
+    chart.container('atl-che_score');
+    chart.draw();
+
+
+    // ----- The third pie -----
+    // set the data
+    var data = [{
+        x: "Yes",
+        value: 43,
+        normal: {
+            fill: "#0400B6"
+        }
+    },
+    {
+        x: "No",
+        value: 57,
+        normal: {
+            fill: "#E40E0E"
+        }
+    }]
+    // create the chart
+    var chart = anychart.pie()
+    chart.background().stroke("3 #0c1149")
+    chart.background().fill({
+        keys: ["#fff"],
+        angle: 130,
+    })
+    // set the chart title
+    chart.title("The total is more 2.5")
+    // add the data
+    chart.data(data)
+    // display the chart in the container
+    chart.container('atl-che_total')
+    chart.draw()
+
+
+    // ----- The fourth pie -----
+    // set the data
+    var data = [{
+        x: "2:1",
+        value: 35,
+        normal: {
+            fill: "#0400B6"
+        }
+    },
+    {
+        x: "2:0",
+        value: 27,
+        normal: {
+            fill: "#E40E0E"
+        }
+    },
+    {
+        x: "1:0",
+        value: 19,
+        normal: {
+            fill: "#DF970A"
+        }
+    },
+    {
+        x: "3:1",
+        value: 11,
+        normal: {
+            fill: "#FECA67"
+        }
+    },
+    {
+        x: "3:0",
+        value: 7,
+        normal: {
+            fill: "#FBFE67"
+        }
+    }]
+    // create the chart
+    var chart = anychart.pie()
+    chart.background().stroke("3 #0c1149")
+    chart.background().fill({
+        keys: ["#fff"],
+        angle: 130,
+    })
+    // set the chart title
+    chart.title("Final score")
+    // add the data
+    chart.data(data)
+    // display the chart in the container
+    chart.container('atl-che_goals')
+    chart.draw()
+})
+
+anychart.onDocumentReady(function () {
+    // ----- The first pie -----
+    // set the data
+    var data = [{
+        x: "Chelsea",
+        value: 58,
+        normal: {
+            fill: "#0400B6"
+        }
+    },
+    {
+        x: "Manchester United",
+        value: 42,
+        normal: {
+            fill: "#E40E0E"
+        }
+    }]
+    // create the chart
+    var chart = anychart.pie()
+    chart.background().stroke("3 #0c1149")
+    chart.background().fill({
+        keys: ["#fff"],
+        angle: 130,
+    })
+    // set the chart title
+    chart.title("Who is the winner?")
+    // add the data
+    chart.data(data)
+    // display the chart in the container
+    chart.container('che-mu_winner')
+    chart.draw()
+
+
+    // ----- The second pie -----
+    // set the data
+    var data = [{
+        x: "Yes",
+        value: 17,
+        normal: {
+            fill: "#0400B6"
+        }
+    },
+    {
+        x: "No",
+        value: 73,
+        normal: {
+            fill: "#E40E0E"
+        }
+    }]
+    // create the chart
+    var chart = anychart.pie()
+    chart.background().stroke("3 #0c1149")
+    chart.background().fill({
+        keys: ["#fff"],
+        angle: 130,
+    })
+    // set the chart title
+    chart.title("Will both score?")
+    // add the data
+    chart.data(data)
+    // display the chart in the container
+    chart.container('che-mu_score');
+    chart.draw();
+
+
+    // ----- The third pie -----
+    // set the data
+    var data = [{
+        x: "Yes",
+        value: 43,
+        normal: {
+            fill: "#0400B6"
+        }
+    },
+    {
+        x: "No",
+        value: 57,
+        normal: {
+            fill: "#E40E0E"
+        }
+    }]
+    // create the chart
+    var chart = anychart.pie()
+    chart.background().stroke("3 #0c1149")
+    chart.background().fill({
+        keys: ["#fff"],
+        angle: 130,
+    })
+    // set the chart title
+    chart.title("The total is more 2.5")
+    // add the data
+    chart.data(data)
+    // display the chart in the container
+    chart.container('che-mu_total')
+    chart.draw()
+
+
+    // ----- The fourth pie -----
+    // set the data
+    var data = [{
+        x: "2:1",
+        value: 35,
+        normal: {
+            fill: "#0400B6"
+        }
+    },
+    {
+        x: "2:0",
+        value: 27,
+        normal: {
+            fill: "#E40E0E"
+        }
+    },
+    {
+        x: "1:0",
+        value: 19,
+        normal: {
+            fill: "#DF970A"
+        }
+    },
+    {
+        x: "3:1",
+        value: 11,
+        normal: {
+            fill: "#FECA67"
+        }
+    },
+    {
+        x: "3:0",
+        value: 7,
+        normal: {
+            fill: "#FBFE67"
+        }
+    }]
+    // create the chart
+    var chart = anychart.pie()
+    chart.background().stroke("3 #0c1149")
+    chart.background().fill({
+        keys: ["#fff"],
+        angle: 130,
+    })
+    // set the chart title
+    chart.title("Final score")
+    // add the data
+    chart.data(data)
+    // display the chart in the container
+    chart.container('che-mu_goals')
+    chart.draw()
+})
+
+anychart.onDocumentReady(function () {
+    // ----- The first pie -----
+    // set the data
+    var data = [{
+        x: "Chelsea",
+        value: 58,
+        normal: {
+            fill: "#0400B6"
+        }
+    },
+    {
+        x: "Liverpool",
+        value: 42,
+        normal: {
+            fill: "#E40E0E"
+        }
+    }]
+    // create the chart
+    var chart = anychart.pie()
+    chart.background().stroke("3 #0c1149")
+    chart.background().fill({
+        keys: ["#fff"],
+        angle: 130,
+    })
+    // set the chart title
+    chart.title("Who is the winner?")
+    // add the data
+    chart.data(data)
+    // display the chart in the container
+    chart.container('liv-che_winner')
+    chart.draw()
+
+
+    // ----- The second pie -----
+    // set the data
+    var data = [{
+        x: "Yes",
+        value: 17,
+        normal: {
+            fill: "#0400B6"
+        }
+    },
+    {
+        x: "No",
+        value: 73,
+        normal: {
+            fill: "#E40E0E"
+        }
+    }]
+    // create the chart
+    var chart = anychart.pie()
+    chart.background().stroke("3 #0c1149")
+    chart.background().fill({
+        keys: ["#fff"],
+        angle: 130,
+    })
+    // set the chart title
+    chart.title("Will both score?")
+    // add the data
+    chart.data(data)
+    // display the chart in the container
+    chart.container('liv-che_score');
+    chart.draw();
+
+
+    // ----- The third pie -----
+    // set the data
+    var data = [{
+        x: "Yes",
+        value: 43,
+        normal: {
+            fill: "#0400B6"
+        }
+    },
+    {
+        x: "No",
+        value: 57,
+        normal: {
+            fill: "#E40E0E"
+        }
+    }]
+    // create the chart
+    var chart = anychart.pie()
+    chart.background().stroke("3 #0c1149")
+    chart.background().fill({
+        keys: ["#fff"],
+        angle: 130,
+    })
+    // set the chart title
+    chart.title("The total is more 2.5")
+    // add the data
+    chart.data(data)
+    // display the chart in the container
+    chart.container('liv-che_total')
+    chart.draw()
+
+
+    // ----- The fourth pie -----
+    // set the data
+    var data = [{
+        x: "2:1",
+        value: 35,
+        normal: {
+            fill: "#0400B6"
+        }
+    },
+    {
+        x: "2:0",
+        value: 27,
+        normal: {
+            fill: "#E40E0E"
+        }
+    },
+    {
+        x: "1:0",
+        value: 19,
+        normal: {
+            fill: "#DF970A"
+        }
+    },
+    {
+        x: "3:1",
+        value: 11,
+        normal: {
+            fill: "#FECA67"
+        }
+    },
+    {
+        x: "3:0",
+        value: 7,
+        normal: {
+            fill: "#FBFE67"
+        }
+    }]
+    // create the chart
+    var chart = anychart.pie()
+    chart.background().stroke("3 #0c1149")
+    chart.background().fill({
+        keys: ["#fff"],
+        angle: 130,
+    })
+    // set the chart title
+    chart.title("Final score")
+    // add the data
+    chart.data(data)
+    // display the chart in the container
+    chart.container('liv-che_goals')
+    chart.draw()
+});
