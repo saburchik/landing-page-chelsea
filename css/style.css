@@ -376,7 +376,7 @@ input[type='text'] {
   display: none;
 }
 
-.nav-links li:not(:first-child) {
+.nav-links li {
   margin-left: 30px;
 }
 
@@ -1151,7 +1151,7 @@ input[type='text'] {
     width: 100%;
   }
 
-  .nav-links li:not(:first-child) {
+  .nav-links li {
     margin: 1rem 0;
   }
 
