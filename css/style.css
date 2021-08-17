@@ -23,6 +23,7 @@
 }
 
 body {
+  width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -608,7 +609,7 @@ address {
   background-color: #ff4747;
 }
 
-.cl-btn-3 {
+.modal__disable {
   width: clamp(10px, 1vw, 20px);
   height: clamp(10px, 1vw, 20px);
   -webkit-transform: rotate(45deg) scale(2);
@@ -619,8 +620,8 @@ address {
   top: 15px;
 }
 
-.cl-btn-3 .top,
-.cl-btn-3 .bot {
+.modal__disable .left,
+.modal__disable .right {
   display: block;
   background: #0c1149;
   position: absolute;
@@ -630,9 +631,12 @@ address {
           animation-timing-function: cubic-bezier(1, 0, 0, 1);
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
 }
 
-.cl-btn-3 .top {
+.modal__disable .left {
   height: 100%;
   width: 2px;
   margin-left: -1px;
@@ -642,7 +646,7 @@ address {
   top: 0;
 }
 
-.cl-btn-3 .bot {
+.modal__disable .right {
   width: 100%;
   height: 2px;
   margin-top: -1px;
@@ -652,7 +656,7 @@ address {
   left: 0;
 }
 
-@-webkit-keyframes top-out {
+@-webkit-keyframes left-out {
   from {
     top: 0%;
     height: 100%;
@@ -664,7 +668,7 @@ address {
   }
 }
 
-@keyframes top-out {
+@keyframes left-out {
   from {
     top: 0%;
     height: 100%;
@@ -676,7 +680,7 @@ address {
   }
 }
 
-@-webkit-keyframes top-in {
+@-webkit-keyframes left-in {
   from {
     top: -100%;
     height: 0%;
@@ -688,7 +692,7 @@ address {
   }
 }
 
-@keyframes top-in {
+@keyframes left-in {
   from {
     top: -100%;
     height: 0%;
@@ -700,7 +704,7 @@ address {
   }
 }
 
-@-webkit-keyframes bot-out {
+@-webkit-keyframes right-out {
   from {
     left: 0%;
     width: 100%;
@@ -712,7 +716,7 @@ address {
   }
 }
 
-@keyframes bot-out {
+@keyframes right-out {
   from {
     left: 0%;
     width: 100%;
@@ -724,7 +728,7 @@ address {
   }
 }
 
-@-webkit-keyframes bot-in {
+@-webkit-keyframes right-in {
   from {
     left: -100%;
     width: 0%;
@@ -736,7 +740,7 @@ address {
   }
 }
 
-@keyframes bot-in {
+@keyframes right-in {
   from {
     left: -100%;
     width: 0%;
@@ -748,18 +752,18 @@ address {
   }
 }
 
-.cl-btn-3:hover {
+.modal__disable:hover {
   cursor: pointer;
 }
 
-.cl-btn-3:hover .top {
-  -webkit-animation: top-out 0.25s forwards, top-in 0.25s forwards 0.25s;
-          animation: top-out 0.25s forwards, top-in 0.25s forwards 0.25s;
+.modal__disable:hover .left {
+  -webkit-animation: left-out 0.25s forwards, left-in 0.25s forwards 0.25s;
+          animation: left-out 0.25s forwards, left-in 0.25s forwards 0.25s;
 }
 
-.cl-btn-3:hover .bot {
-  -webkit-animation: bot-out 0.25s forwards 0.1s, bot-in 0.25s forwards 0.35s;
-          animation: bot-out 0.25s forwards 0.1s, bot-in 0.25s forwards 0.35s;
+.modal__disable:hover .right {
+  -webkit-animation: right-out 0.25s forwards 0.1s, right-in 0.25s forwards 0.35s;
+          animation: right-out 0.25s forwards 0.1s, right-in 0.25s forwards 0.35s;
 }
 
 .modal__icon {
