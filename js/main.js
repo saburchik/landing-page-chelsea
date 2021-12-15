@@ -1,3 +1,4 @@
+// == Testing on webp format:
 function testWebP(callback) {
     var webP = new Image()
     webP.onload = webP.onerror = function () {
@@ -15,56 +16,49 @@ testWebP(function (support) {
 })
 
 // Add classes, when a burger is clicked on
-const burger = document.querySelector('#burger');
-const header = document.querySelector('#header');
-const menu = document.querySelector('#menu');
-const navLinks = document.querySelector('#navLinks');
-const ham = document.querySelector('#effect');
+const burger = document.querySelector('#burger')
+const header = document.querySelector('#header')
+const navMenu = document.querySelector('#navMenu')
+const navItems = document.querySelector('#navItems')
+const ham = document.querySelector('#effect')
 
 burger.addEventListener('click', function () {
-    header.classList.toggle('active');
-    menu.classList.toggle('active');
-    navLinks.classList.toggle('active');
-    ham.classList.toggle('active');
+    header.classList.toggle('active')
+    navMenu.classList.toggle('active')
+    navItems.classList.toggle('active')
+    ham.classList.toggle('active')
 });
 // Fixed navigation
-window.addEventListener("scroll", checkScroll);
+window.addEventListener("scroll", checkScroll)
 function checkScroll() {
-    let scrollHeight = window.scrollY;
+    let scrollHeight = window.scrollY
 
     if (scrollHeight > 490) {
-        header.classList.add("fixed");
+        header.classList.add("fixed")
     } else {
-        header.classList.remove("fixed");
-    };
-};;
-// When width display > 769px - all classes for burger - DISABLE 
-onload = function () {
-    widthMenu();
-}
-
-window.onresize = function () {
-    widthMenu();
-}
-
-function widthMenu() {
-    let width = window.innerWidth;
-
-    if (width > 769) {
-        document.getElementById('header').classList.remove("active");
-        document.getElementById('burger').classList.remove("active");
-        document.getElementById('menu').classList.remove("active");
-        document.getElementById('navLinks').classList.remove("active");
-        document.getElementById('effect').classList.remove("active");
+        header.classList.remove("fixed")
     }
 };
-// Smooth scroll
-const links = document.querySelectorAll('a[href*="#"], [href*="#"]');
+// == DisplayScreen > 769px all classes for burger = disable;
+function widthMenu() {
+    let width = window.innerWidth
+    if (width > 769) {
+        document.getElementById('header').classList.remove('active')
+        document.getElementById('burger').classList.remove('active')
+        document.getElementById('navMenu').classList.remove('active')
+        document.getElementById('navItems').classList.remove('active')
+        document.getElementById('effect').classList.remove('active')
+    }
+}
+
+onload = () => widthMenu()
+window.onresize = () => widthMenu();
+// == Smooth scroll:
+const links = document.querySelectorAll('a[href*="#"], [href*="#"]')
 
 for (let link of links) {
     link.addEventListener('click', function (e) {
         e.preventDefault()
-
         const scrollSmooth = link.getAttribute('href').substr(1)
 
         document.getElementById(scrollSmooth).scrollIntoView({
@@ -72,112 +66,113 @@ for (let link of links) {
             block: 'start'
         })
 
-        // Disable burger menu, when smooth scroll
-        header.classList.remove('active');
-        menu.classList.remove('active');
-        navLinks.classList.remove('active');
-        ham.classList.remove('active');
+        // == Disable burger navMenu, when smooth scroll:
+        header.classList.remove('active')
+        navMenu.classList.remove('active')
+        navItems.classList.remove('active')
+        ham.classList.remove('active')
     })
 }
 ;
-const body = document.querySelector('body');
-const lockPadding = document.querySelectorAll('.lock-padding');
+const body = document.querySelector('body')
+const lockPadding = document.querySelectorAll('.lock-padding')
 
-let unlock = true;
-const timeout = 700;
+let unlock = true
+const timeout = 700
 
-const windowModal = document.querySelectorAll('.window__modal');
+const windowModal = document.querySelectorAll('.btn__modal')
 if (windowModal.length > 0) {
     for (let i = 0; i < windowModal.length; i++) {
-        const openModal = windowModal[i];
+        const openModal = windowModal[i]
         openModal.addEventListener('click', function (e) {
-            const modalReplace = openModal.getAttribute('href').replace('#', '');
-            const currentModal = document.getElementById(modalReplace);
-            modalOpen(currentModal);
-            e.preventDefault();
-        });
+            const modalReplace = openModal.getAttribute('href').replace('#', '')
+            const currentModal = document.getElementById(modalReplace)
+            modalOpen(currentModal)
+            e.preventDefault()
+        })
     }
 }
-const windowModalDisable = document.querySelectorAll('.modal__disable');
+const windowModalDisable = document.querySelectorAll('.modal__close')
 if (windowModalDisable.length > 0) {
     for (let i = 0; i < windowModalDisable.length; i++) {
-        const el = windowModalDisable[i];
+        const el = windowModalDisable[i]
         el.addEventListener('click', function (e) {
-            modalClose(el.closest('.modal'));
-            e.preventDefault();
-        });
+            modalClose(el.closest('.modal'))
+            e.preventDefault()
+        })
     }
 }
 
 function modalOpen(currentModal) {
     if (currentModal && unlock) {
-        const modalActive = document.querySelector('.modal.active');
+        const modalActive = document.querySelector('.modal.active')
         if (modalActive) {
-            modalClose(modalActive, false);
+            modalClose(modalActive, false)
         } else {
-            bodyLock();
+            bodyLock()
         }
-        currentModal.classList.add('active');
+        currentModal.classList.add('active')
         currentModal.addEventListener('click', function (e) {
             if (!e.target.closest('.modal__inner')) {
-                modalClose(e.target.closest('.modal'));
+                modalClose(e.target.closest('.modal'))
             }
-        });
+        })
     }
 }
 function modalClose(modalActive, doUnlock = true) {
     if (unlock) {
-        modalActive.classList.remove('active');
+        modalActive.classList.remove('active')
         if (doUnlock) {
-            bodyUnLock();
+            bodyUnLock()
         }
     }
 }
 
 function bodyLock() {
-    const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+    const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px'
 
     for (let i = 0; i < lockPadding.length; i++) {
-        const el = lockPadding[i];
-        el.style.paddingRight = lockPaddingValue;
+        const el = lockPadding[i]
+        el.style.paddingRight = lockPaddingValue
     }
-    body.style.paddingRight = lockPaddingValue;
-    body.classList.add('lock');
+    body.style.paddingRight = lockPaddingValue
+    body.classList.add('lock')
 
-    unlock = false;
+    unlock = false
     setTimeout(function () {
-        unlock = true;
-    }, timeout);
+        unlock = true
+    }, timeout)
 }
 
 function bodyUnLock() {
     setTimeout(function () {
         if (lockPadding.length > 0) {
             for (let i = 0; i < lockPadding.length; i++) {
-                const el = lockPadding[i];
-                el.style.paddingRight = '0px';
+                const el = lockPadding[i]
+                el.style.paddingRight = '0px'
             }
         }
-        body.style.paddingRight = '0';
-        body.classList.remove('lock');
-    }, timeout);
+        body.style.paddingRight = '0'
+        body.classList.remove('lock')
+    }, timeout)
 
-    unlock = false;
+    unlock = false
     setTimeout(function () {
-        unlock = true;
-    }, timeout);
+        unlock = true
+    }, timeout)
 }
 
-// Close Modal-Window by button ESC
+// == Close modal-window by ESC:
 document.addEventListener('keydown', function (e) {
     if (e.which === 27) {
-        const modalActive = document.querySelector('.modal.active');
-        modalClose(modalActive);
+        const modalActive = document.querySelector('.modal.active')
+        modalClose(modalActive)
     }
-});;
+});
+
 anychart.onDocumentReady(function () {
     // ----- The first pie -----
-    // set the data
+    // == Set the data:
     var data = [{
         x: "Chelsea",
         value: 58,
@@ -192,24 +187,23 @@ anychart.onDocumentReady(function () {
             fill: "#E40E0E"
         }
     }]
-    // create the chart
+    // == Create the chart:
     var chart = anychart.pie()
     chart.background().stroke("3 #0c1149")
     chart.background().fill({
         keys: ["#fff"],
         angle: 130,
     })
-    // set the chart title
+    // == Set the chart title:
     chart.title("Who is the winner?")
-    // add the data
+    // == Add the data:
     chart.data(data)
-    // display the chart in the container
+    // == Display the chart in the container:
     chart.container('atl-che_winner')
     chart.draw()
 
-
     // ----- The second pie -----
-    // set the data
+    // == Set the data:
     var data = [{
         x: "Yes",
         value: 17,
@@ -224,24 +218,23 @@ anychart.onDocumentReady(function () {
             fill: "#E40E0E"
         }
     }]
-    // create the chart
+    // == Create the chart:
     var chart = anychart.pie()
     chart.background().stroke("3 #0c1149")
     chart.background().fill({
         keys: ["#fff"],
         angle: 130,
     })
-    // set the chart title
+    // == Set the chart title:
     chart.title("Will both score?")
-    // add the data
+    // == Add the data:
     chart.data(data)
-    // display the chart in the container
+    // == Display the chart in the container:
     chart.container('atl-che_score');
     chart.draw();
 
-
     // ----- The third pie -----
-    // set the data
+    // == Set the data:
     var data = [{
         x: "Yes",
         value: 43,
@@ -256,24 +249,23 @@ anychart.onDocumentReady(function () {
             fill: "#E40E0E"
         }
     }]
-    // create the chart
+    // == Create the chart:
     var chart = anychart.pie()
     chart.background().stroke("3 #0c1149")
     chart.background().fill({
         keys: ["#fff"],
         angle: 130,
     })
-    // set the chart title
+    // == Set the chart title:
     chart.title("The total is more 2.5")
-    // add the data
+    // == Add the data:
     chart.data(data)
-    // display the chart in the container
+    // == Display the chart in the container:
     chart.container('atl-che_total')
     chart.draw()
 
-
     // ----- The fourth pie -----
-    // set the data
+    // == Set the data:
     var data = [{
         x: "2:1",
         value: 35,
@@ -309,25 +301,25 @@ anychart.onDocumentReady(function () {
             fill: "#FBFE67"
         }
     }]
-    // create the chart
+    // == Create the chart:
     var chart = anychart.pie()
     chart.background().stroke("3 #0c1149")
     chart.background().fill({
         keys: ["#fff"],
         angle: 130,
     })
-    // set the chart title
+    // == Set the chart title:
     chart.title("Final score")
-    // add the data
+    // == Add the data:
     chart.data(data)
-    // display the chart in the container
+    // == Display the chart in the container:
     chart.container('atl-che_goals')
     chart.draw()
 })
 
 anychart.onDocumentReady(function () {
     // ----- The first pie -----
-    // set the data
+    // == Set the data:
     var data = [{
         x: "Chelsea",
         value: 58,
@@ -342,24 +334,23 @@ anychart.onDocumentReady(function () {
             fill: "#E40E0E"
         }
     }]
-    // create the chart
+    // == Create the chart:
     var chart = anychart.pie()
     chart.background().stroke("3 #0c1149")
     chart.background().fill({
         keys: ["#fff"],
         angle: 130,
     })
-    // set the chart title
+    // == Set the chart title:
     chart.title("Who is the winner?")
-    // add the data
+    // == Add the data:
     chart.data(data)
-    // display the chart in the container
+    // == Display the chart in the container:
     chart.container('che-mu_winner')
     chart.draw()
 
-
     // ----- The second pie -----
-    // set the data
+    // == Set the data:
     var data = [{
         x: "Yes",
         value: 17,
@@ -374,24 +365,23 @@ anychart.onDocumentReady(function () {
             fill: "#E40E0E"
         }
     }]
-    // create the chart
+    // == Create the chart:
     var chart = anychart.pie()
     chart.background().stroke("3 #0c1149")
     chart.background().fill({
         keys: ["#fff"],
         angle: 130,
     })
-    // set the chart title
+    // == Set the chart title:
     chart.title("Will both score?")
-    // add the data
+    // == Add the data:
     chart.data(data)
-    // display the chart in the container
+    // == Display the chart in the container:
     chart.container('che-mu_score');
     chart.draw();
 
-
     // ----- The third pie -----
-    // set the data
+    // == Set the data:
     var data = [{
         x: "Yes",
         value: 43,
@@ -406,24 +396,23 @@ anychart.onDocumentReady(function () {
             fill: "#E40E0E"
         }
     }]
-    // create the chart
+    // == Create the chart:
     var chart = anychart.pie()
     chart.background().stroke("3 #0c1149")
     chart.background().fill({
         keys: ["#fff"],
         angle: 130,
     })
-    // set the chart title
+    // == Set the chart title:
     chart.title("The total is more 2.5")
-    // add the data
+    // == Add the data:
     chart.data(data)
-    // display the chart in the container
+    // == Display the chart in the container:
     chart.container('che-mu_total')
     chart.draw()
 
-
     // ----- The fourth pie -----
-    // set the data
+    // == Set the data:
     var data = [{
         x: "2:1",
         value: 35,
@@ -459,25 +448,25 @@ anychart.onDocumentReady(function () {
             fill: "#FBFE67"
         }
     }]
-    // create the chart
+    // == Create the chart:
     var chart = anychart.pie()
     chart.background().stroke("3 #0c1149")
     chart.background().fill({
         keys: ["#fff"],
         angle: 130,
     })
-    // set the chart title
+    // == Set the chart title:
     chart.title("Final score")
-    // add the data
+    // == Add the data:
     chart.data(data)
-    // display the chart in the container
+    // == Display the chart in the container:
     chart.container('che-mu_goals')
     chart.draw()
 })
 
 anychart.onDocumentReady(function () {
     // ----- The first pie -----
-    // set the data
+    // == Set the data:
     var data = [{
         x: "Chelsea",
         value: 58,
@@ -492,24 +481,23 @@ anychart.onDocumentReady(function () {
             fill: "#E40E0E"
         }
     }]
-    // create the chart
+    // == Create the chart:
     var chart = anychart.pie()
     chart.background().stroke("3 #0c1149")
     chart.background().fill({
         keys: ["#fff"],
         angle: 130,
     })
-    // set the chart title
+    // == Set the chart title:
     chart.title("Who is the winner?")
-    // add the data
+    // == Add the data:
     chart.data(data)
-    // display the chart in the container
+    // == Display the chart in the container:
     chart.container('liv-che_winner')
     chart.draw()
 
-
     // ----- The second pie -----
-    // set the data
+    // == Set the data:
     var data = [{
         x: "Yes",
         value: 17,
@@ -524,24 +512,23 @@ anychart.onDocumentReady(function () {
             fill: "#E40E0E"
         }
     }]
-    // create the chart
+    // == Create the chart:
     var chart = anychart.pie()
     chart.background().stroke("3 #0c1149")
     chart.background().fill({
         keys: ["#fff"],
         angle: 130,
     })
-    // set the chart title
+    // == Set the chart title:
     chart.title("Will both score?")
-    // add the data
+    // == Add the data:
     chart.data(data)
-    // display the chart in the container
+    // == Display the chart in the container:
     chart.container('liv-che_score');
     chart.draw();
 
-
     // ----- The third pie -----
-    // set the data
+    // == Set the data:
     var data = [{
         x: "Yes",
         value: 43,
@@ -556,24 +543,23 @@ anychart.onDocumentReady(function () {
             fill: "#E40E0E"
         }
     }]
-    // create the chart
+    // == Create the chart:
     var chart = anychart.pie()
     chart.background().stroke("3 #0c1149")
     chart.background().fill({
         keys: ["#fff"],
         angle: 130,
     })
-    // set the chart title
+    // == Set the chart title:
     chart.title("The total is more 2.5")
-    // add the data
+    // == Add the data:
     chart.data(data)
-    // display the chart in the container
+    // == Display the chart in the container:
     chart.container('liv-che_total')
     chart.draw()
 
-
     // ----- The fourth pie -----
-    // set the data
+    // == Set the data:
     var data = [{
         x: "2:1",
         value: 35,
@@ -609,18 +595,22 @@ anychart.onDocumentReady(function () {
             fill: "#FBFE67"
         }
     }]
-    // create the chart
+    // == Create the chart:
     var chart = anychart.pie()
     chart.background().stroke("3 #0c1149")
     chart.background().fill({
         keys: ["#fff"],
         angle: 130,
     })
-    // set the chart title
+    // == Set the chart title:
     chart.title("Final score")
-    // add the data
+    // == Add the data:
     chart.data(data)
-    // display the chart in the container
+    // == Display the chart in the container:
     chart.container('liv-che_goals')
     chart.draw()
 });
+
+// == Stopping page reloading:
+const btnJoin = document.querySelector('#btnJoin')
+btnJoin.addEventListener('click', () => event.preventDefault())
