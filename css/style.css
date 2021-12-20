@@ -472,6 +472,7 @@ address {
 
 .burger__inner {
   display: none;
+  width: 82px;
   height: 82px;
   overflow: hidden;
   cursor: pointer;
@@ -1191,9 +1192,7 @@ address {
   }
 
   .burger__inner {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
+    display: block;
   }
 }
 
