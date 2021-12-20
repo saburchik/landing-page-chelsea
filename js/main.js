@@ -15,7 +15,7 @@ testWebP(function (support) {
     }
 })
 
-// Add classes, when a burger is clicked on
+// == Add classes, when a burger is clicked on:
 const burger = document.querySelector('#burger')
 const header = document.querySelector('#header')
 const navMenu = document.querySelector('#navMenu')

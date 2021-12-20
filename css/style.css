@@ -375,7 +375,7 @@ address {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  max-width: 1200px;
+  max-width: clamp(1200px, 66vw, 1700px);
   position: relative;
   padding: 0 1rem;
   margin: 0 auto;
@@ -1105,12 +1105,6 @@ address {
   transition: 0.2s;
 }
 
-@media (min-width: 1900px) {
-  .nav__menu {
-    max-width: 1700px;
-  }
-}
-
 @media (min-width: 2000px) {
   .intro__inner {
     min-height: 890px;
@@ -1197,9 +1191,9 @@ address {
   }
 
   .burger__inner {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
   }
 }
 
