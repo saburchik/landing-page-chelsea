@@ -79,7 +79,7 @@ picture {
 }
 
 input[type=text] {
-  font-size: 1rem;
+  font-size: clamp(1rem, 1vw, 1.3rem);
   font-family: "Lato", sans-serif;
 }
 
@@ -89,7 +89,7 @@ address {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: clamp(1200px, 66vw, 1700px);
   margin: 0 auto;
   padding: 6rem 1rem 0;
 }
@@ -488,15 +488,15 @@ address {
   transition: transform 400ms, -webkit-transform 400ms;
 }
 
-.hamburger__effect .hamburger__line_top {
+.hamburger__effect .hamburger__line--top {
   stroke-dasharray: 40 82;
 }
 
-.hamburger__effect .hamburger__line_middle {
+.hamburger__effect .hamburger__line--middle {
   stroke-dasharray: 40 111;
 }
 
-.hamburger__effect .hamburger__line_bottom {
+.hamburger__effect .hamburger__line--bottom {
   stroke-dasharray: 40 161;
 }
 
@@ -506,16 +506,16 @@ address {
           transform: rotate(45deg);
 }
 
-.hamburger__effect.active .hamburger__line_top {
+.hamburger__effect.active .hamburger__line--top {
   stroke-dasharray: 17 82;
   stroke-dashoffset: -62px;
 }
 
-.hamburger__effect.active .hamburger__line_middle {
+.hamburger__effect.active .hamburger__line--middle {
   stroke-dashoffset: 23px;
 }
 
-.hamburger__effect.active .hamburger__line_bottom {
+.hamburger__effect.active .hamburger__line--bottom {
   stroke-dashoffset: -83px;
 }
 
@@ -730,11 +730,11 @@ address {
   padding: 1rem;
 }
 
-.modal__header_bg-img {
+.modal__header--img {
   background: url("../img/champions-league.jpg") center/cover no-repeat;
 }
 
-.modal__header_bg-color {
+.modal__header--color {
   background-color: #ff4747;
 }
 
@@ -1106,10 +1106,6 @@ address {
 }
 
 @media (min-width: 1900px) {
-  .container {
-    max-width: 1700px;
-  }
-
   .nav__menu {
     max-width: 1700px;
   }
@@ -1262,7 +1258,7 @@ address {
 
 .webp .events__inner { background: url(../img/background-line.webp) center/cover no-repeat; }
 
-.webp .modal__header_bg-img { background: url(../img/champions-league.webp) center/cover no-repeat; }
+.webp .modal__header--img { background: url(../img/champions-league.webp) center/cover no-repeat; }
 
 @media (max-width: 850px) {
 
