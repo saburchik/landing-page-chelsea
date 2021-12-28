@@ -162,6 +162,7 @@ address {
 .btn__intro {
   width: 290px;
   background: #0E3AB1;
+  margin-top: 2rem;
 }
 
 .btn__event {
@@ -553,7 +554,7 @@ address {
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  gap: 1rem;
+  gap: clamp(1rem, 5vw, 3rem);
 }
 
 .title__intro {
