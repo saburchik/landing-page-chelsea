@@ -55,7 +55,7 @@ onload = () => widthMenu()
 window.onresize = () => widthMenu();
 // == Smooth scroll:
 const links = document.querySelectorAll('a[href*="#"], [href*="#"]')
-
+console.log(links)
 for (let link of links) {
     link.addEventListener('click', function (e) {
         e.preventDefault()

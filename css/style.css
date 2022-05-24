@@ -1238,14 +1238,72 @@ address {
     padding: 0 1rem;
   }
 }
+@supports (-webkit-appearance:none){
+.intro__inner{background:url("../img/backgrounds.webp") center/cover no-repeat}
+.events__inner{background:url("../img/background-line.webp") center/cover no-repeat}
+.modal__header--img{background:url("../img/champions-league.webp") center/cover no-repeat}
+}
 
-.webp .intro__inner { background: url(../img/backgrounds.webp) center/cover no-repeat; }
+ @media (max-width: 1150px){
 
-.webp .events__inner { background: url(../img/background-line.webp) center/cover no-repeat; }
+@supports (-webkit-appearance:none){
 
-.webp .modal__header--img { background: url(../img/champions-league.webp) center/cover no-repeat; }
+}
 
-@media (max-width: 850px) {
+}
 
-  .webp .content__about { background: url(../img/chelsea-white.webp) center/cover no-repeat; }
+ @media (max-width: 900px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 850px){
+
+@supports (-webkit-appearance:none){
+.content__about{background:url("../img/chelsea-white.webp") center/cover no-repeat}
+}
+
+}
+
+ @media (max-width: 770px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 690px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 560px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 490px){
+
+@supports (-webkit-appearance:none){
+
+}
+
+}
+
+ @media (max-width: 390px){
+
+@supports (-webkit-appearance:none){
+
+}
+
 }
